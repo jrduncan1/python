@@ -9,7 +9,7 @@ def hello_world():
 def dojo():
     return 'Dojo!'
 
-@app.route('/say/<name>')
+@app.route('/say/<string:name>')
 def say(name):
     return "Hi, " + name
 
