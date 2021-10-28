@@ -64,5 +64,5 @@ steve.make_deposit(100, "investment").make_withdrawl(150, "investment").display_
 
 steve.establish_new_account('business')
 
-steve.make_deposit(5000, 'business').display_user_balance('business')
+steve.make_deposit(5000, 'business').display_user_balance('business') # need to determine how to print the correct acct name when using different account types
 
