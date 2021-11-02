@@ -10,7 +10,7 @@ def hello_world():
 def results():
     return render_template('results.html')
 
-@app.route('/process', methods=["GET","POST"])
+@app.route('/process', methods=["POST"])
 def process_form():
     session['full_name'] = request.form['full_name']
     session['dojo_location'] = request.form['dojo_location']
