@@ -9,3 +9,4 @@ mysql/erd/world.mwb.bak
 flask_mysql/crud/users_cr/templates/read_all.html
 flask_mysql/crud/users_cr/templates/create.html
 flask_mysql/crud/users_cr/static/css/bootstrap.css
+flask_mysql/crud/users_crud.zip
