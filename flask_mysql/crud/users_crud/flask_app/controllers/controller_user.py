@@ -21,7 +21,7 @@ def new_user():
 @app.route('/users/create', methods=['POST'])
 def create_user():
     id = model_user.User.create(request.form)
-    return redirect('/')
+    return redirect(f'/users/{id}')
 
 # shows page with one user's info
 # DISPLAY route
