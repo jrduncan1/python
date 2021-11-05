@@ -6,9 +6,6 @@ fundamentals/.DS_Store
 mysql/.DS_Store
 flask/flask_checklist.md
 mysql/erd/world.mwb.bak
-flask_mysql/crud/users_cr/Pipfile
 flask_mysql/crud/users_cr/templates/read_all.html
 flask_mysql/crud/users_cr/templates/create.html
 flask_mysql/crud/users_cr/static/css/bootstrap.css
-flask_mysql/crud/users_cr/server.py
-flask_mysql/crud/users_cr/Pipfile.lock
