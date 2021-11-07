@@ -10,3 +10,8 @@ flask_mysql/crud/users_cr/templates/read_all.html
 flask_mysql/crud/users_cr/templates/create.html
 flask_mysql/crud/users_cr/static/css/bootstrap.css
 flask_mysql/crud/users_crud.zip
+flask_mysql/crud/flask_checklist.md
+flask_mysql/crud/dojos_and_ninjas/flask_checklist.md
+mysql/erd/dojos_and_ninjas.mwb
+mysql/erd/dojos_and_ninjas.mwb.bak
+flask_mysql/crud/dojos_and_ninjas/dojos_and_ninjas_notes.md
