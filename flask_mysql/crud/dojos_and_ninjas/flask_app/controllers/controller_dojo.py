@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, request, redirect, session
-from flask_app.models import model_dojo, model_ninja
+from flask_app.models import model_dojo
 
 # shows page with all dojos in the database and a form to create a new dojo
 # DISPLAY route
@@ -21,6 +21,6 @@ def create_dojo():
 @app.route('/dojos/<int:id>')
 def show_dojo(id):
     context = {
-        'dojos': model_dojo.Dojo.get_one(id)
+        'dojos': model_dojo.Dojo.show_ninjas({'id' : id})
     }
     return render_template("dojo_info.html", **context)

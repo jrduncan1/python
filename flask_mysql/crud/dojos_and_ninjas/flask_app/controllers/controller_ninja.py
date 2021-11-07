@@ -17,5 +17,5 @@ def new_ninja():
 def create_ninja():
     dojo_id = request.form['dojo_id']
     model_ninja.Ninja.create(request.form)
-    return redirect('/')
+    return redirect(f'/dojos/{dojo_id}')
 

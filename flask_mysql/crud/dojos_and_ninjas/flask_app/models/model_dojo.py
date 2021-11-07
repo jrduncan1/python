@@ -1,5 +1,6 @@
 # import the function that will return an instance of a connection
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_app.models import model_ninja
 
 DATABASE = 'dojos_and_ninjas'
 
@@ -42,18 +43,19 @@ class Dojo:
     
     @classmethod
     def show_ninjas(cls,data):
-        query = "SELECT * FROM dojos LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id  WHERE dojos.id = %(id)s;"
+        query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id  WHERE dojos.id = %(id)s;"
         results = connectToMySQL(DATABASE).query_db(query, data)
         print(results)
         dojo = cls(results[0])
         for row in results:
             ninjas_in_dojos = {
                 'id': row['ninjas.id'],
-                'first_name': row['ninjas.first_name'],
-                'last_name': row['ninjas.last_name'],
-                'age': row['ninjas.age'],
+                'first_name': row['first_name'],
+                'last_name': row['last_name'],
+                'age': row['age'],
                 'created_at': row['ninjas.created_at'],
-                'updated_at': row['ninjas.updated_at']
+                'updated_at': row['ninjas.updated_at'],
+                'dojo_id': row['dojo_id']
             }
-            dojo.ninjas.append(dojo.ninjas_in_dojos)
+            dojo.ninjas.append(model_ninja.Ninja(ninjas_in_dojos))
         return dojo
