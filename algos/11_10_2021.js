@@ -22,15 +22,12 @@ const expected4 = [1];
 
 function dedupeSorted(nums) {
     var newArr = []
-    var newArr2 = []
     for(var x=0; x<nums.length; x++){
-        if (nums[x] === nums[x + 1]){
-            newArr.push(nums[x], nums[x+1])
-        } else{
-            newArr2.push(nums[x])
+        if (nums[x] != nums[x + 1]){
+            newArr.push(nums[x])
         }
     }
-    return newArr2
+    return newArr
 }
 console.log(dedupeSorted(nums1))
 console.log(dedupeSorted(nums2))
