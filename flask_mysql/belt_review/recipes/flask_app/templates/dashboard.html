@@ -41,6 +41,10 @@
                             {% endif %}
                             <td>
                                 <a href="/show_recipe/{{ recipe.id }}"><button class="btn btn-primary">View</button></a>
+                                {% if recipe.user_id == session['uuid'] %}
+                                    <a href="/edit_recipe/{{ recipe.id }}"><button class="btn btn-secondary">Edit</button></a>
+                                    <a href="/delete_recipe/{{ recipe.id }}"><button class="btn btn-danger">Delete</button></a>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}

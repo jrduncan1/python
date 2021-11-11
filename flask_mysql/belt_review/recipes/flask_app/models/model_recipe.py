@@ -43,8 +43,6 @@ class Recipe:
             recipes.append(Recipe(row))
         return recipes
 
-
-
     @classmethod
     def retrieve_one_recipe(cls, data):
         query = "SELECT * FROM recipes WHERE recipes.id = %(id)s"
@@ -55,7 +53,17 @@ class Recipe:
             return False
     
     # UPDATE____________________________________________________________
+    @classmethod
+    def edit_recipe(cls, data):
+        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instructions = %(instructions)s, date_made_on = %(date_made_on)s, under_30_min = %(under_30_min)s WHERE recipes.id = %(id)s"
+        results = connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
+        return results
+    
     # DELETE____________________________________________________________
+    @classmethod
+    def delete_recipe(cls, data):
+        query = "DELETE FROM recipes WHERE id = %(id)s"
+        connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
 
     # VALIDATIONS______________________________
     @staticmethod

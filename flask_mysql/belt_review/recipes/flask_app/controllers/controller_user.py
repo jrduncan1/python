@@ -6,6 +6,7 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 ## Display route______________________________________________________
+# Login/registration page--if user is logged in(and didn't log out), directs them straight to the dashboard
 @app.route('/')
 def index():
     if 'uuid' in session:
@@ -13,6 +14,7 @@ def index():
     return render_template('index.html')
 
 ## Action route_______________________________________________________
+# Processes the registration of a new user
 @app.route('/register', methods = ["POST"])
 def register():
     if not model_user.User.registration_validate(request.form):
@@ -28,11 +30,13 @@ def register():
 
     return redirect('/dashboard')
 
+# Logs user out
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/')
 
+# Logs user in
 @app.route('/login', methods = ["POST"])
 def login():
     if not model_user.User.login_validate(request.form):

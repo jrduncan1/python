@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Create Recipe</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Edit Recipe</h1>
+            <div>
+                <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
+                <a href="/logout"><button class="btn btn-secondary">Logout</button></a>
+            </div>
+        </div>
+        <form action="/update_recipe/{{ recipe.id }}" method="POST">
+            <div class="d-flex justify-content-around">
+                <div class="col-sm-5 mt-4">
+                    <div class="mb-2">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" value="{{ recipe.name }}">
+                        {% for message in get_flashed_messages(category_filter='create_name') %}
+                            <div>
+                                <p class="{{ category }}" style="color: red;">{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-2">
+                        <label for="name">Description:</label>
+                        <textarea class="form-control" name="description" rows="3">{{ recipe.description }}</textarea>
+                        {% for message in get_flashed_messages(category_filter='create_description') %}
+                            <div>
+                                <p class="{{ category }}" style="color: red;">{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-2">
+                        <label for="name">Instructions:</label>
+                        <textarea class="form-control" name="instructions" rows="8">{{ recipe.instructions }}</textarea>
+                        {% for message in get_flashed_messages(category_filter='create_instructions') %}
+                            <div>
+                                <p class="{{ category }}" style="color: red;">{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-success">Create!</button>
+                    </div>
+                </div>
+                <div class="col-sm-5 mt-4">
+                    <div class="mb-5">
+                        <label for="date_made_on">Date Made On:</label>
+                        <input type="date" name="date_made_on" value="{{ recipe.date_made_on }}">
+                        {% for message in get_flashed_messages(category_filter='create_date_made_on') %}
+                            <div>
+                                <p class="{{ category }}" style="color: red;">{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-2">
+                        <h6>Under 30 Minutes?</h6>
+                        {% if recipe.under_30 == "yes" %}
+                            <label>Yes</label>
+                            <input type="radio" name="under_30_min" value="1" checked>
+                            <label class="ms-4">No</label>
+                            <input type="radio" name="under_30_min" value="0">
+                        {% else %}
+                            <label>Yes</label>
+                            <input type="radio" name="under_30_min" value="1">
+                            <label class="ms-4">No</label>
+                            <input type="radio" name="under_30_min" value="0" checked>
+                        {% endif %}
+                            {% for message in get_flashed_messages(category_filter='create_under_30_min') %}
+                            <div>
+                                <p class="{{ category }}" style="color: red;">{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
