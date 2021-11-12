@@ -18,3 +18,17 @@ flask_mysql/crud/dojos_and_ninjas/dojos_and_ninjas_notes.md
 flask_mysql/belt_review/recipes.mwb.bak
 flask_mysql/belt_review/recipes.mwb
 flask_mysql/belt_review/recipes.mwb.mwb
+belt_exam/Pipfile
+belt_exam/Pipfile.lock
+belt_exam/server.py
+belt_exam/flask_app/__init__.py
+belt_exam/flask_app/config/mysqlconnection.py
+belt_exam/flask_app/controllers/controller_recipe.py
+belt_exam/flask_app/controllers/controller_user.py
+belt_exam/flask_app/models/model_recipe.py
+belt_exam/flask_app/models/model_user.py
+belt_exam/flask_app/templates/dashboard.html
+belt_exam/flask_app/templates/edit_recipe.html
+belt_exam/flask_app/templates/index.html
+belt_exam/flask_app/templates/new_recipe.html
+belt_exam/flask_app/templates/show_recipe.html
